@@ -10,11 +10,36 @@ public class FracCalc {
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
         // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
-    	 Scanner console= new Scanner(System.in);
+    	 /**Scanner console= new Scanner(System.in);
     	 System.out.println("Enter a value");
     	 String x= console.next();
-    	 produceAnswer(x);
+    	 produceAnswer(x);*/
         // Checkpoint 2: Accept user input multiple times.
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.print("What would you like to calucate? ");
+    	String input = scanner.nextLine();
+    	
+    	while(!input.equals("quit")){
+    		System.out.print("Enter an expression");
+    		input = scanner.nextLine();
+    		int slash = input.indexOf("/");
+    		String num = input.substring(0,slash);
+    		int underscore = input.indexOf("_");
+    		String w = input.substring(0,underscore);
+    		String n = input.substring(underscore + 1,slash);
+    		String d = input.substring(slash + 1,input.length());
+    		
+    		int whole = Integer.parseInt(w);
+    		int numerator = Integer.parseInt(n);
+    		int denomtor = Integer.parseInt(d);
+
+    		System.out.println(whole +" "+ numerator + " " + denomtor);	
+    	}
+    	
+    	if(input.equals("quit")){
+    		System.out.println("Goodbye");
+    		scanner.close();
+    	}
     }
     
     /**
@@ -31,6 +56,7 @@ public class FracCalc {
     	
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
+    	
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
